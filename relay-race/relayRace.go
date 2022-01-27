@@ -43,8 +43,8 @@ func Runner(team string, baton chan int, arrivalOrder chan string) {
 
 	fmt.Printf("[%s] - Corredor %d correndo com o bastão\n", team, runner)
 
-	// Running in the baton
-	time.Sleep(4 * 100 * time.Millisecond)
+	// Running with the baton
+	time.Sleep(4 * 100 * time.Nanosecond)
 
 	if runner == NUMBER_RUNNERS {
 		fmt.Printf("[%s] - Finalizou a corrida! \n", team)
