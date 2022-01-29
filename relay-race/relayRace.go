@@ -15,7 +15,6 @@ func Runner(waitGroup *sync.WaitGroup, nameTeam string, baton chan int, arrivalO
 	runner := <-baton
 
 	fmt.Printf("[%s] - Corredor %d correndo com o bastão\n", nameTeam, runner)
-
 	// Running with the baton
 	time.Sleep(time.Microsecond * time.Duration(4 * 100))
 
@@ -27,8 +26,7 @@ func Runner(waitGroup *sync.WaitGroup, nameTeam string, baton chan int, arrivalO
 	}
 
 	nextRunner := runner + 1
-	//Puting the next runner in his position
-	go Runner(waitGroup, nameTeam, baton, arrivalOrder)
+	go Runner(waitGroup, nameTeam, baton, arrivalOrder) //Puting the next runner in his position
 	fmt.Printf("[%s] - Corredou %d passou o bastão para o corredor %d\n", nameTeam, runner, nextRunner)
 	baton <- nextRunner
 }
